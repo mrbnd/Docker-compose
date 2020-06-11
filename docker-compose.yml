@@ -9,7 +9,7 @@ services:
     environment:
       - CATALINA_BASE=/web_app
     volumes:
-      - web_app:/web_app
+      - web_app:/usr/share/tomcat8/
     ports:
       - "85:8080"
 volumes:
