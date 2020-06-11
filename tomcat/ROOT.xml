@@ -1,5 +1,5 @@
 <Context
-        docBase="/webapps"
+        docBase="/webapps/hello-1.0"
         path=""
         reloadable="true"
 />
