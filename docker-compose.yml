@@ -4,7 +4,7 @@ services:
     build: maven
     volumes:
       - web_app:/boxfuse-sample-java-war-hello/target/
-    command: ls /boxfuse-sample-java-war-hello/target/
+    command: ls -l /boxfuse-sample-java-war-hello/target/
   tomcat:
     image: tomcat:8.0
     volumes:
