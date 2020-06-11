@@ -11,7 +11,7 @@ services:
       - web_app:/web_app
       #- ./tomcat/ROOT.xml:/usr/share/tomcat8/conf/Catalina/localhost/ROOT.xml
       #- ./tomcat/:/webapps
-    command: bash -c "cp -r /web_app/target/hello-1.0 /usr/local/tomcat/webapps/ && ls -l /usr/local/tomcat8/webapps"
+    command: bash -c "cp -r /web_app/target/hello-1.0 /usr/local/tomcat8/webapps/ && ls -l /usr/local/tomcat8/webapps"
     entrypoint: ["catalina.sh", "run"]
     ports:
       - "85:8080"
