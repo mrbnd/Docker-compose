@@ -3,12 +3,12 @@ services:
   maven:
     build: maven
     volumes:
-      - web_app:/boxfuse-sample-java-war-hello
+      - web_app:/boxfuse-sample-java-war-hello/target/
   tomcat:
     image: tomcat:8.0
     volumes:
       - web_app:/web_app
-      #- ./tomcat/ROOT.xml:/usr/share/tomcat8/conf/Catalina/localhost/ROOT.xml
+      - ./tomcat/ROOT.xml:/usr/share/tomcat8/conf/Catalina/localhost/ROOT.xml
       #- ./tomcat/:/webapps
     ports:
       - "85:8080"
