@@ -3,15 +3,15 @@ services:
   maven:
     build: maven
     volumes:
-      - web_app:/boxfuse-sample-java-war-hello/target
-    command: ls -l /boxfuse-sample-java-war-hello/target
+      - web_app:/boxfuse-sample-java-war-hello/
+    command: ls -l /boxfuse-sample-java-war-hello
   tomcat:
     image: tomcat:8.0
     volumes:
       - web_app:/web_app
       #- ./tomcat/ROOT.xml:/usr/share/tomcat8/conf/Catalina/localhost/ROOT.xml
       #- ./tomcat/:/webapps
-    command: cp -r /web_app/hello-1.0 /usr/local/tomcat/webapps/
+   command: ls -l /web_app && cp -r /web_app/target/hello-1.0 /usr/local/tomcat/webapps/
     ports:
       - "85:8080"
 volumes:
