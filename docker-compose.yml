@@ -7,10 +7,10 @@ services:
   tomcat:
     build: tomcat
     environment:
-      - CATALINA_HOME=/web_app
-      - CATALINA_BASE=/var/lib/tomcat8
+      - CATALINA_BASE=/usr/share/tomcat8/
     volumes:
-      - web_app:/usr/share/tomcat8/
+      - web_app:/web_app
+      - tomcat/ROOT.xml:/usr/share/tomcat8/conf/Catalina/localhost/ROOT.xml
     ports:
       - "85:8080"
 volumes:
