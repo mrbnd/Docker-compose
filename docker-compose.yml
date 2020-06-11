@@ -5,13 +5,11 @@ services:
     volumes:
       - web_app:/boxfuse-sample-java-war-hello
   tomcat:
-    build: tomcat
-    environment:
-      - CATALINA_BASE=/usr/share/tomcat8/
+    image: tomcat:8.0
     volumes:
       - web_app:/web_app
-      - ./tomcat/ROOT.xml:/usr/share/tomcat8/conf/Catalina/localhost/ROOT.xml
-      - ./tomcat/:/webapps
+      #- ./tomcat/ROOT.xml:/usr/share/tomcat8/conf/Catalina/localhost/ROOT.xml
+      #- ./tomcat/:/webapps
     ports:
       - "85:8080"
 volumes:
