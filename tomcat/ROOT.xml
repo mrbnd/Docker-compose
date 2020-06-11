@@ -1,5 +1,5 @@
 <Context
-        docBase="/webapps/hello-1.0"
+        docBase=" /var/lib/tomcat8/webapps/"
         path=""
         reloadable="true"
 />
