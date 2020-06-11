@@ -3,13 +3,14 @@ services:
   maven:
     build: maven
     volumes:
-      - web_app:/boxfuse-sample-java-war-hello/target/hello-1.0/
+      - web_app:/boxfuse-sample-java-war-hello/target/
   tomcat:
     image: tomcat:8.0
     volumes:
-      - web_app:/usr/local/tomcat/webapps/
-      # - ./tomcat/ROOT.xml:/usr/share/tomcat8/conf/Catalina/localhost/ROOT.xml
+      - web_app:/web_app
+      #- ./tomcat/ROOT.xml:/usr/share/tomcat8/conf/Catalina/localhost/ROOT.xml
       #- ./tomcat/:/webapps
+    command: cp -r /web_app/hello-1.0 /usr/local/tomcat/webapps/
     ports:
       - "85:8080"
 volumes:
