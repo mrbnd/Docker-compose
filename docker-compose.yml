@@ -3,8 +3,8 @@ services:
   maven:
     build: maven
     volumes:
-      - web_app:/boxfuse-sample-java-war-hello/target/
-    command: ls -l /boxfuse-sample-java-war-hello/target/
+      - web_app:./target
+    command: ls -l ./target
   tomcat:
     image: tomcat:8.0
     volumes:
