@@ -12,6 +12,6 @@ services:
       - web_app:/web_app
     ports:
       - "85:8080"
-
-
+volumes:
+  web_app:
 
