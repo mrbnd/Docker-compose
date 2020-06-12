@@ -3,15 +3,17 @@ services:
   maven:
     build: maven
     volumes:
-      - web_app:/boxfuse-sample-java-war-hello/
+      - maven/webapp:/boxfuse-sample-java-war-hello/
 
   tomcat:
     image: tomcat:8.0
     volumes:
       - web_app:/usr/local/tomcat/temp
+      - tomcat
+    #command: bash -c "ls -l /usr/local/tomcat/ && cp -r /usr/local/tomcat/temp/target/hello-1.0 /usr/local/tomcat/webapps/"
     #command: bash -c "ls -l /usr/local/tomcat/temp/target/"
     entrypoint: ["catalina.sh", "run"]
-    command: bash -c "ls -l /usr/local/tomcat/ && cp -r /usr/local/tomcat/temp/target/hello-1.0 /usr/local/tomcat/webapps/"
+
     ports:
       - "85:8080"
     depends_on:
