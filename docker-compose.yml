@@ -3,7 +3,7 @@ services:
   maven:
     build: maven
     volumes:
-      - ./maven/webapp:/boxfuse-sample-java-war-hello/target
+      - web_app:/boxfuse-sample-java-war-hello/target
 
   tomcat:
     image: tomcat:8.0
