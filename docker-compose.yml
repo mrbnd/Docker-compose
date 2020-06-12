@@ -10,7 +10,7 @@ services:
     volumes:
       - web_app:/temp
     #command: bash -c "cp -r /usr/local/tomcat/temp/target/hello-1.0 /usr/local/tomcat/webapps/ && "
-    command: "ls -l /usr/local/tomcat/temp/target/"
+    command: bash -c "ls -l /usr/local/tomcat/temp/target/"
     entrypoint: ["catalina.sh", "run"]
     ports:
       - "85:8080"
