@@ -6,18 +6,18 @@
    tasks:
     - name: Ensure nginx package is present
       apt:
-       name: nginx
-       state: present
+        name: nginx
+        state: present
 
     - name: Ensure index.html is present
       copy:
-       src: index.html
-       dest: /var/www/html
+        src: index.html
+        dest: /var/www/html
 
     - name: Ensure nginx service is started
       service:
-       name: nginx
-       state: started
+        name: nginx
+        state: started
 
  - name: install db
    host: db
@@ -26,10 +26,10 @@
    tasks:
     - name: Ensure postgresql package is present
       apt:
-       name: postgresql
-       state: present
+        name: postgresql
+        state: present
 
     - name: Ensure postgresql service is started
       service:
-       name: postgresql
-       state: started
+        name: postgresql
+        state: started
