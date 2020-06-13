@@ -9,7 +9,7 @@ services:
     image: tomcat:8.0
     volumes:
       - web_app:/usr/local/tomcat/temp/
-    command: bash -c "ls /bin/ && ls /usr/local/tomcat/temp/target && ls  /usr/local/tomcat/webapps/ && /bin/cp -R /usr/local/tomcat/temp/target /usr/local/tomcat/webapps/"
+    command: ls /bin/ && ls /usr/local/tomcat/temp/target && ls  /usr/local/tomcat/webapps/ && /bin/cp -R /usr/local/tomcat/temp/target /usr/local/tomcat/webapps/
     # command: bash -c "ls -l /usr/local/tomcat/"
     entrypoint: ["/bin/bash"]
 
