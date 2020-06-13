@@ -11,7 +11,7 @@ services:
       - web_app:/usr/local/tomcat/temp/
     #command: bash -c "ls -l /usr/local/tomcat/ && cp -r /usr/local/tomcat/temp/target/hello-1.0 /usr/local/tomcat/webapps/"
     #command: bash -c "ls -l /usr/local/tomcat/temp/target/"
-   entrypoint: ["ls", "/usr/local/tomcat/temp/"]
+    entrypoint: ["ls", "/usr/local/tomcat/temp/"]
 
     ports:
       - "85:8080"
