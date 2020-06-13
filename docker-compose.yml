@@ -9,7 +9,7 @@ services:
     image: tomcat:8.0
     volumes:
       - web_app:/usr/local/tomcat/temp/
-    command: /bin/cp -R /usr/local/tomcat/temp/target /usr/local/tomcat/webapps/
+    command: /bin/bash -c "/bin/cp -R /usr/local/tomcat/temp/target /usr/local/tomcat/webapps/"
     # command: bash -c "ls -l /usr/local/tomcat/"
     entrypoint: ["catalina.sh", "run"]
 
