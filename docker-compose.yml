@@ -10,7 +10,7 @@ services:
     volumes:
       - web_app:/usr/local/tomcat/temp/
     command: /bin/cp -R "/usr/local/tomcat/temp/ /usr/local/tomcat/webapps/"
-    command: bash -c "ls -l /usr/local/tomcat/temp/"
+    command: bash -c "ls -l /usr/local/tomcat/"
     entrypoint: ["ls", "/usr/local/tomcat/webapps/"]
 
     ports:
