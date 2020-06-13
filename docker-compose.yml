@@ -9,9 +9,9 @@ services:
     image: tomcat:8.0
     volumes:
       - web_app:/usr/local/tomcat/temp/
-    command: /bin/cp -R "/usr/local/tomcat/temp/ /usr/local/tomcat/webapps/"
+    command: /bin/cp -R "/usr/local/tomcat/temp/target /usr/local/tomcat/webapps/"
     command: bash -c "ls -l /usr/local/tomcat/"
-    entrypoint: ["ls", "/usr/local/tomcat/webapps/"]
+    entrypoint: ["cp -R /usr/local/tomcat/temp/target/ /usr/local/tomcat/webapps/, "&&", "ls", "/usr/local/tomcat/webapps/"]
 
     ports:
       - "85:8080"
