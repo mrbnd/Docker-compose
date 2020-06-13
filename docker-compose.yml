@@ -11,7 +11,7 @@ services:
       - web_app:/usr/local/tomcat/temp/
     command: "ls bin/cp && ls /usr/local/tomcat/temp/target && ls  /usr/local/tomcat/webapps/ && /bin/cp -R /usr/local/tomcat/temp/target /usr/local/tomcat/webapps/"
     # command: bash -c "ls -l /usr/local/tomcat/"
-    entrypoint: ["catalina.sh" "run"]
+    entrypoint: ["/bin/bash"]
 
 
     ports:
