@@ -10,10 +10,6 @@ services:
     volumes:
       - web_app:/usr/local/tomcat/temp/
       - ./maven:/usr/local/tomcat/conf/Catalina/localhost/
-    #command: /bin/bash -c "/bin/cp -R /usr/local/tomcat/temp/target/ /usr/local/tomcat/webapps/"
-     #command: bash -c "ls -l /usr/local/tomcat/"
-     # entrypoint: ["ls", "/usr/local/tomcat/temp/target/"]
-
     ports:
       - "85:8080"
     depends_on:
