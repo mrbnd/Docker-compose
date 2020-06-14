@@ -1,0 +1,5 @@
+<Context
+        docBase="/usr/local/tomcat/temp/target/hello-1.0"
+        path=""
+        reloadable="true"
+/>
