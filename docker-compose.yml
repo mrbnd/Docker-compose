@@ -10,7 +10,7 @@ services:
     build: deploy
     volumes:
       - web_app:/apache-tomcat-8.5.56/temp/
-      - ./maven:/apache-tomcat-8.5.56/conf/Catalina/localhost/
+      - ./deploy:/apache-tomcat-8.5.56/conf/Catalina/localhost/
     ports:
       - "85:8080"
     depends_on:
