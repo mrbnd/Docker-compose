@@ -7,7 +7,7 @@ services:
 
 
   tomcat:
-    image: deploy
+    build: deploy
     volumes:
       - web_app:/apache-tomcat-8.5.56/temp/
       - ./maven:/apache-tomcat-8.5.56/conf/Catalina/localhost/
