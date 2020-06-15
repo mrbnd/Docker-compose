@@ -1,18 +1,12 @@
+- name: install nginx
+  hosts: web
+  become: yes
 
- - name: install nginx
-   host: web
-   become: yes
-
-   tasks:
+  tasks:
     - name: Ensure nginx package is present
       apt:
         name: nginx
         state: present
-
-    - name: Ensure index.html is present
-      copy:
-        src: index.html
-        dest: /var/www/html
 
     - name: Ensure nginx service is started
       service:
@@ -21,6 +15,6 @@
 
     - name: Ensure SELinux is set to enforcing mode
       lineinfile:
-       path: /var/www/html/index.html
-       regexp: 'Welcome to nginx!'
-       line: <p><script>document.write(new Date().toLocaleDateString());</script></p>
+        dest: /var/www/html/index.html
+        regexp: 'Hello world'
+        line: <p><script>document.write(new Date().toLocaleDateString());</script></p>
