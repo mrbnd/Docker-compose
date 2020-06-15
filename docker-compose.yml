@@ -5,15 +5,30 @@ services:
     volumes:
       - web_app:/boxfuse-sample-java-war-hello/
 
+
   tomcat:
-    image: tomcat:8.0
+    image: tomcat
     volumes:
-      - web_app:/usr/local/tomcat/temp/
-      - ./maven:/usr/local/tomcat/conf/Catalina/localhost/
+      - web_app:/apache-tomcat-8.5.56/temp/
+      - ./maven:/apache-tomcat-8.5.56/conf/Catalina/localhost/
     ports:
       - "85:8080"
     depends_on:
       - maven
 volumes:
   web_app:
+
+
+
+#  tomcat:
+#    image: tomcat:8.0
+#    volumes:
+#      - web_app:/usr/local/tomcat/temp/
+#      - ./maven:/usr/local/tomcat/conf/Catalina/localhost/
+#    ports:
+#      - "85:8080"
+#    depends_on:
+#      - maven
+#volumes:
+#  web_app:
 

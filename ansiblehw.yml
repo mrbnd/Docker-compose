@@ -1,0 +1,53 @@
+
+ - name: Build
+   hosts: build
+   become: yes
+
+   tasks:
+    - name: Ensure packages is present
+      apt:
+        pkg:
+          - default-jdk
+          - maven
+          - git
+          - rsync
+        state: present
+        update_cache: yes
+
+    - name: Git clone
+      git:
+       repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
+       dest: /tmp/boxfuse-sample-java-war-hello
+       clone: yes
+
+    - name: Mvn package
+      command: mvn package -f /tmp/boxfuse-sample-java-war-hello
+
+ - name: Deploy
+   hosts: web
+   become: yes
+
+   tasks:
+     - name: Ensure packages is present
+       apt:
+         pkg:
+           - tomcat8
+           - rsync
+         state: present
+         update_cache: yes
+
+     - name: Mvn package
+       command: rsync -avz root@52.188.123.237:/tmp/boxfuse-sample-java-war-hello/target/hello-1.0/ /var/lib/tomcat8/webapps/hello-1.0/
+
+     - name: Restart service tomcat8
+       service:
+         name: tomcat8
+         state: restarted
+
+    # Не сработало, возникли проблемы с запуском rsync на хосте Build
+    # - name: Synchronization using rsync protocol (pull)
+    #   synchronize:
+    #     mode: pull
+    #     src: rsync://52.188.123.237/tmp/boxfuse-sample-java-war-hello/target/hello-1.0
+    #     dest: /var/lib//tomcat8/webapps/hello-1.0/
+   #    delegate_to: 52.247.109.255 #Адрес сервера web

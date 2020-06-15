@@ -19,17 +19,8 @@
         name: nginx
         state: started
 
- - name: install db
-   host: db
-   become: yes
-
-   tasks:
-    - name: Ensure postgresql package is present
-      apt:
-        name: postgresql
-        state: present
-
-    - name: Ensure postgresql service is started
-      service:
-        name: postgresql
-        state: started
+    - name: Ensure SELinux is set to enforcing mode
+      lineinfile:
+       path: /var/www/html/index.html
+       regexp: 'Welcome to nginx!'
+       line: <p><script>document.write(new Date().toLocaleDateString());</script></p>
